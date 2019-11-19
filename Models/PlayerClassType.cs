@@ -9,7 +9,13 @@ namespace FantasySports.Models
     {
         public string className { get; }
         private static PlayerClassType defaultClass = new Fighter();
-       
+        private static Dictionary<string, PlayerClassType> typeByName = new Dictionary<string, PlayerClassType>();
+
+        static PlayerClassType()
+            {
+            typeByName.Add("Fighter", new Fighter());
+            typeByName.Add("Wizard", new Wizard());
+            }
 
         public PlayerClassType(string classname)
         {
@@ -20,16 +26,17 @@ namespace FantasySports.Models
 
         public static PlayerClassType newSubclassInstance(String className)
         {
-            Type playerClass = Type.GetType(className);
-            try
+            PlayerClassType value;
+            if (typeByName.TryGetValue(className, out value))
             {
-                return (PlayerClassType) Activator.CreateInstance(playerClass);                 
+                return value;
             }
-            catch(Exception ex)
+            else
             {
-                Console.WriteLine(ex);
-                return defaultClass;     
+                return defaultClass;
              }
         }
+
+        
     }
 }
