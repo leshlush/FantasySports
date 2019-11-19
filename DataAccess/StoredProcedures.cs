@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace FantasySports.DataAccess
 {
-    public class QueryBuilder
+    public class StoredProcedures
     {
         public static DataTable getRowsFromSproc(String sprocName)
         {

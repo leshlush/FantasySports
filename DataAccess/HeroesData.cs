@@ -13,7 +13,7 @@ namespace FantasySports.DataAccess
         public static List<Hero> getAllAvailableHeroes()
         {
             List<Hero> heroes = new List<Hero>();
-            DataTable table = QueryBuilder.getRowsFromSproc("GetAllAvailableHeroes");
+            DataTable table = StoredProcedures.getRowsFromSproc("GetAllAvailableHeroes");
 
             foreach(DataRow row in table.Rows)
             {
