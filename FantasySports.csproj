@@ -132,6 +132,8 @@
     <Compile Include="Controllers\HeroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="DataAccess\HeroesData.cs" />
+    <Compile Include="DataAccess\QueryBuilder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

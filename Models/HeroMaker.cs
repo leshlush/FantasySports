@@ -10,16 +10,8 @@ namespace FantasySports.Models
 {
     public class HeroMaker
     {
-        public static List<Hero> getAllHeroes()
-        {
-            using (var context = new FantasySportsEntities())
-            {
-                List<Hero> allHeroes = (List<Hero>) context.Heroes.Where(s => s.name != null); 
-                return allHeroes;
-            }
-        }
-
-        public static List<Hero> GetAllHeroes2()
+       
+        public static List<Hero> getAllAvailableHeroes()
         {
             List<Hero> heroes = new List<Hero>();
 
@@ -36,7 +28,7 @@ namespace FantasySports.Models
                     string name = rdr["name"].ToString();
                     int hp = Convert.ToInt32(rdr["hp"]);
                     int damage = Convert.ToInt32(rdr["damage"]);
-                    string combatClass = rdr["name"].ToString();
+                    string combatClass = rdr["class"].ToString();
 
                     heroes.Add(new Hero(hp, damage, name, combatClass));
                 }

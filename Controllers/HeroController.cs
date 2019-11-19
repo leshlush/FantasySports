@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FantasySports.Models;
+using FantasySports.DataAccess;
 
 namespace FantasySports.Controllers
 {
@@ -16,7 +17,7 @@ namespace FantasySports.Controllers
 
         public ViewResult AvailableHeroes()
         {
-            List<Models.Hero> allHeroes = HeroMaker.GetAllHeroes2();
+            List<Models.Hero> allHeroes = HeroesData.getAllAvailableHeroes();
             
             return View(allHeroes);
         }
