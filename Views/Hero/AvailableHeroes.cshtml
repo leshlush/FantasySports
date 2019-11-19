@@ -1,0 +1,17 @@
+﻿@model List<FantasySports.Models.Hero>
+
+@{
+    ViewBag.Title = "Available Heroes";
+}
+
+<h2>Available Heroes</h2>
+
+@foreach(var hero in Model)
+{
+<div class="col-md-3" style="padding:4px 0px 4px 0px">
+    <p>@hero.name the @hero.classType.className</p>
+    <p>HP: @hero.hp</p>
+    <p>Damage: @hero.damage</p>
+</div>
+}
+
