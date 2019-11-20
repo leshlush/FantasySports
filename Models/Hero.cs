@@ -7,6 +7,7 @@ namespace FantasySports.Models
 {
     public class Hero
     {
+        public int? id { get; }
         public int hp { get; set; }
         public int damage { get; set; }
         public string name{get; set;}
@@ -14,14 +15,25 @@ namespace FantasySports.Models
 
         public Hero(int hp, int damage, string name, PlayerClassType classType)
         {
+            this.id = null;
             this.hp = hp;
             this.damage = damage;
             this.name = name;
             this.classType = classType;
         }
 
-        public Hero(int hp, int damage, string name, string className)
+        public Hero(int id, int hp, int damage, string name, PlayerClassType classType)
         {
+            this.id = id;
+            this.hp = hp;
+            this.damage = damage;
+            this.name = name;
+            this.classType = classType;
+        }
+
+        public Hero(int id, int hp, int damage, string name, string className)
+        {
+            this.id = id;
             this.hp = hp;
             this.damage = damage;
             this.name = name;

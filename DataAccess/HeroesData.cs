@@ -17,12 +17,13 @@ namespace FantasySports.DataAccess
 
             foreach(DataRow row in table.Rows)
             {
+                int id = Convert.ToInt32(row["id"]);
                 string name = row["name"].ToString();
                 int hp = Convert.ToInt32(row["hp"]);
                 int damage = Convert.ToInt32(row["damage"]);
                 string combatClass = row["class"].ToString();
 
-                heroes.Add(new Hero(hp, damage, name, combatClass));
+                heroes.Add(new Hero(id, hp, damage, name, combatClass));
             }
             return heroes;
         }
