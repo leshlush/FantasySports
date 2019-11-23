@@ -133,6 +133,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="DataAccess\HeroesData.cs" />
+    <Compile Include="DataAccess\LeagueData.cs" />
     <Compile Include="DataAccess\StoredProcedures.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

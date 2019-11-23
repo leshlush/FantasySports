@@ -18,7 +18,6 @@ namespace FantasySports.Controllers
         public ViewResult AvailableHeroes()
         {
             List<Models.Hero> allHeroes = HeroesData.getAllAvailableHeroes();
-            
             return View(allHeroes);
         }
     }

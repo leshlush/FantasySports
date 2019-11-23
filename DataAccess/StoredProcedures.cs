@@ -12,7 +12,7 @@ namespace FantasySports.DataAccess
     {
         public static DataTable getRowsFromSproc(String sprocName)
         {
-            
+
 
             string connectionString = ConfigurationManager.ConnectionStrings["ADOString"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -23,7 +23,7 @@ namespace FantasySports.DataAccess
 
                 SqlDataReader rdr = cmd.ExecuteReader();
                 DataTable table = new DataTable();
-                table.Load(rdr);               
+                table.Load(rdr);
 
                 return table;
             }
@@ -38,7 +38,7 @@ namespace FantasySports.DataAccess
             {
                 SqlCommand cmd = new SqlCommand(sprocName, connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                foreach(SqlParameter parameter in parameters)
+                foreach (SqlParameter parameter in parameters)
                 {
                     cmd.Parameters.Add(parameter);
                 }
@@ -50,6 +50,23 @@ namespace FantasySports.DataAccess
                 table.Load(rdr);
 
                 return table;
+            }
+        }
+
+        public static void callNonQuerySproc(string sprocName, SqlParameter[] parameters)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["ADOString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(sprocName, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                foreach (SqlParameter parameter in parameters)
+                {
+                    cmd.Parameters.Add(parameter);
+                }
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }
