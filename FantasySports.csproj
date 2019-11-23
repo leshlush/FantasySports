@@ -155,6 +155,8 @@
     <Compile Include="Models\EnemyWave.cs" />
     <Compile Include="Models\Fighter.cs" />
     <Compile Include="Models\Enemy.cs" />
+    <Compile Include="Models\League.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Models\PlayerClassType.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Hero.cs" />

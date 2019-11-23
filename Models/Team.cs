@@ -7,27 +7,48 @@ namespace FantasySports.Models
 {
     public class Team
     {
-        private List<Hero> players;
+        private int id;
+        private List<Hero> heroes;
+        public Player player { get; set; }
 
-        public Team()
+        public Team(Player player)
         {
-            players = new List<Hero>();
+            heroes = new List<Hero>();
+            this.player = player;
         }
 
-        public bool addPlayer(Hero player)
+        public bool addHero(Hero hero)
         {
-            if(players.Contains(player))
+            if(heroes.Contains(hero))
             {
-                players.Add(player);
+                heroes.Add(hero);
                 return true;
             }
-            return false;
-                
+            return false;                
         }
 
-        public void removePlayer(Hero player)
+        public void removeHero(Hero hero)
         {
-            players.Remove(player);
+            heroes.Remove(hero);
         }
+
+        public override bool Equals(Object other)
+        {
+            if (other == null || !(other is Team))
+            {
+                return false;
+            }
+            else
+            {
+                Team otherTeam = (Team)other;
+                return id == otherTeam.id;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return id;
+        }
+
     }
 }

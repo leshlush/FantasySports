@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.roundBorder{
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin: 8px;
+    padding: 10px;
+}
